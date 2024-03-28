@@ -46,6 +46,13 @@
       "password": "$2a$08$9/ufmY5NAi95GGzwEoB5B.Si78ksGLv1lMRAhEMw2X3v9UN3CcTqa",
       "passwordNoHash": "abcABC123!!",
       "role": "user"
+    },
+    {
+      "id": "3b15218b-0e68-4cec-a815-fdea525d8080",
+      "userName": "EikEikasfas",
+      "password": "$2a$08$vGo1vppG1AqvL8rpfxK.e.gysc4ofbLiqRQWsJS1aBqlttV87g.V6",
+      "passwordNoHash": "abcABC123!!",
+      "role": "user"
     }
   ],
   "cards": [
@@ -118,6 +125,11 @@
           "text": "dasdfsaeqw eq",
           "id": "802ab18f-f08a-4bc6-9855-fcd6c6595ce4",
           "authorId": "dc8a51ee-c1bf-41d4-bb14-1155a690d314"
+        },
+        {
+          "text": "fgasfgasfass",
+          "id": "a0d97269-0c00-439d-9725-1ff3cabe1321",
+          "authorId": "3b15218b-0e68-4cec-a815-fdea525d8080"
         }
       ]
     },
