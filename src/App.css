@@ -1,0 +1,26 @@
+@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  min-height: calc(100vh - 80px - 150px);
+
+  > section {
+    padding: 0 20px;
+  }
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  margin-top: 0;
+  padding-top: 0.67rem;
+}
+
+.cardItem {
+  text-decoration: none;
+}

@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": "0",
+      "userName": "test1",
+      "password": "$2y$10$Gb57G.lPrq.PYfyZ562nCOxNT.wJ36q1pBboOXno1il25FSvcR0Yq",
+      "passwordNoHash": "Test1234"
+    },
+    {
+      "id": "1",
+      "userName": "test2",
+      "password": "$2y$10$UeOkvhmLhR1kezMPM0sTluArhgkzAx/wueRHCQRj1rdxNptLa.Edy",
+      "passwordNoHash": "Test2345"
+    },
+    {
+      "id": "dc8a51ee-c1bf-41d4-bb14-1155a690d314",
+      "userName": "koderis22",
+      "password": "$2a$08$g6Y5KK7nuuCuUur9Zfxhe.yt63dIP.O2n1Uhhf6SuO/0Kw3DjzDy6",
+      "passwordNoHash": "Testukas456!",
+      "role": "user"
+    },
+    {
+      "id": "9ca884e8-6f9d-45d7-86cc-430702d086b0",
+      "userName": "GrishaVo",
+      "password": "$2a$08$Wd3/nJei21xT3/HubA189.E7ivjvN9kgVucw4BSn7rSS4O/WqbOPm",
+      "passwordNoHash": "abcABC123!!",
+      "role": "user"
+    }
+  ],
+  "cards": [
+    {
+      "id": "0",
+      "userId": "0",
+      "title": "Kada reikia keisti padangas?",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, iusto.",
+      "edited": "false",
+      "answers": []
+    },
+    {
+      "id": "1",
+      "userId": "0",
+      "title": "Kodel nepraejau technikines?",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, iusto. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, iusto.",
+      "edited": "false",
+      "answers": [
+        {
+          "id": "0",
+          "authorId": "0",
+          "text": "Nes reikia tvarkyt masina",
+          "edited": "false"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "userId": "dc8a51ee-c1bf-41d4-bb14-1155a690d314",
+      "title": "Kodel reikia moketi tarsos mokesti?",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, iusto. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, iusto.",
+      "edited": "false",
+      "answers": [
+        {
+          "id": "0",
+          "authorId": "0",
+          "text": "Nes reikia tvarkyt masina",
+          "edited": "false"
+        },
+        {
+          "id": "1",
+          "authorId": "1",
+          "text": "haha",
+          "edited": "false"
+        }
+      ]
+    }
+  ]
+}
