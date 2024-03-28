@@ -8,6 +8,7 @@ export const CardsActionTypes = {
   delete: "delete one specific card",
   addComment: "add new comment to a specific card",
   deleteComment: "delete one specific comment from a card",
+  editCard: "update one specific card",
 };
 
 const reducer = (state, action) => {
@@ -68,6 +69,21 @@ const reducer = (state, action) => {
           return changedCard;
         } else {
           return el;
+        }
+      });
+    case CardsActionTypes.editCard:
+      fetch(`http://localhost:8800/cards/${action.card.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(action.card),
+      });
+      return state.map((el) => {
+        if (el.id !== action.card.id) {
+          return el;
+        } else {
+          return { ...el, ...action.card };
         }
       });
     default:

@@ -10,6 +10,9 @@ import { useContext } from "react";
 const StyledHeader = styled.header`
   background-color: #fff;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 999;
   .container {
     max-width: 1240px;
     margin: 0 auto;

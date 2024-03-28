@@ -5,6 +5,7 @@ import CardsContext from "../../contexts/CardsContext";
 import profile from "../../assets/images/user-profile.png";
 import deleteItem from "../../assets/images/delete.png";
 import comment from "../../assets/images/message.svg";
+import edit from "../../assets/images/edit.png";
 import { CardsActionTypes } from "../../contexts/CardsContext";
 import { Link } from "react-router-dom";
 
@@ -16,7 +17,6 @@ const StyledDiv = styled.div`
   display: flex;
   gap: 10px;
   flex-direction: column;
-  align-items: center;
   margin-bottom: 25px;
   position: relative;
   > div {
@@ -27,14 +27,15 @@ const StyledDiv = styled.div`
       color: #333;
       margin-bottom: 10px;
       min-height: 56px;
+      text-align: left;
     }
     > p {
       margin: 0;
-      text-align: justify;
       min-height: 105px;
       font-size: 16px;
       line-height: 21px;
       color: #333;
+      text-align: left;
     }
   }
   .profileText {
@@ -79,6 +80,14 @@ const StyledDiv = styled.div`
     top: 10px;
     right: 10px;
   }
+  .absolutedItemEdit {
+    position: absolute;
+    top: 8px;
+    right: 40px;
+  }
+  .editItem {
+    height: 25px;
+  }
 `;
 
 const Card = ({ data, location }) => {
@@ -105,11 +114,11 @@ const Card = ({ data, location }) => {
             <p className="profileText">
               <img className="questionProfile" src={profile} /> {userName}
             </p>
-          )}{" "}
+          )}
           <div className="commentsWrapper">
             <div>
-              <img src={comment} alt="comments" />{" "}
-              {data && data.answers.length ? data && data.answers.length : 0}
+              <img src={comment} alt="comments" />
+              {data && data.comments.length ? data && data.comments.length : 0}
             </div>
           </div>
         </div>
@@ -127,6 +136,17 @@ const Card = ({ data, location }) => {
                 }}
               >
                 <img className="deleteItem" src={deleteItem} alt="delete" />
+              </button>
+            )}
+          </div>
+        )}
+        {location.pathname !== "/cards/allCards" && (
+          <div className="absolutedItemEdit">
+            {loggedInUser && userName === loggedInUser.userName && (
+              <button className="deleteBtn">
+                <Link to={`/cards/${data.id}/edit`}>
+                  <img className="editItem" src={edit} alt="edit" />
+                </Link>
               </button>
             )}
           </div>

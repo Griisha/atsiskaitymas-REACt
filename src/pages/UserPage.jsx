@@ -6,6 +6,7 @@ import Card from "../components/Card/Card";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
+  padding-top: 150px;
   > h1 {
     text-align: center;
   }
@@ -13,19 +14,25 @@ const StyledSection = styled.section`
     text-align: center;
 
     > a {
+      width: 200px;
+      border: 1px solid #333;
+      color: #333;
+      background: #fff;
+      padding: 12px 35px;
+      border-radius: 10px;
+      transition: all 0.5s ease;
+      margin: 0 auto;
       text-decoration: none;
-      padding: 5px 12px;
-      border: 1px solid black;
-      border-radius: 10px 5px;
-      transition: 0.3s;
-    }
-    > a:hover {
-      box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-        rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+      cursor: pointer;
+      &:hover {
+        border: 1px solid #c4c4c4;
+        background: #c4c4c4;
+        color: #333;
+      }
     }
   }
   > div {
-    margin: 0 auto;
+    margin: 65px auto 0;
     width: 80%;
     display: grid;
     gap: 10px;

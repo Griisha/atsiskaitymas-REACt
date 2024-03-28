@@ -7,6 +7,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import UserPage from "./pages/UserPage";
 import Home from "./pages/Home";
+import AddNewCard from "./pages/AddNewCard";
+import OneCardPage from "./pages/OneCardPage";
+import EditCard from "./pages/EditCard";
 
 const App = () => {
   const { loggedInUser } = useContext(UsersContext);
@@ -23,6 +26,21 @@ const App = () => {
               path=":name"
               element={
                 loggedInUser ? <UserPage /> : <Navigate to="/user/login" />
+              }
+            />
+          </Route>
+          <Route path="/cards">
+            <Route
+              path="addNew"
+              element={
+                loggedInUser ? <AddNewCard /> : <Navigate to="/user/login" />
+              }
+            />
+            <Route path=":id" element={<OneCardPage />} />
+            <Route
+              path=":id/edit"
+              element={
+                loggedInUser ? <EditCard /> : <Navigate to="/user/login" />
               }
             />
           </Route>

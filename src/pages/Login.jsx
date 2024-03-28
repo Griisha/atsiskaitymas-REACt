@@ -10,7 +10,7 @@ const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 70px;
+  padding-top: 150px;
 
   > h1 {
     font-size: 3rem;

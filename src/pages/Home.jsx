@@ -6,7 +6,7 @@ import styled from "styled-components";
 import UsersContext from "../contexts/UsersContext";
 
 const StyledSection = styled.section`
-  padding: 70px 0;
+  padding: 150px 0 70px 0;
   > h1 {
     text-align: center;
   }
@@ -87,6 +87,36 @@ const StyledSection = styled.section`
       color: #c4c4c4;
     }
   }
+  .sortingWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .filters__right {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    > p {
+      font-size: 21px;
+      color: #333;
+      margin-right: 7px;
+    }
+    > button {
+      border: 1px solid #333;
+      color: #333;
+      background: #fff;
+      text-decoration: none;
+      padding: 12px 35px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      &:hover {
+        border: 1px solid #c4c4c4;
+        background: #c4c4c4;
+        color: #333;
+      }
+    }
+  }
 `;
 
 const Home = () => {
@@ -94,17 +124,30 @@ const Home = () => {
   const location = useLocation();
   const { loggedInUser } = useContext(UsersContext);
   const [filter, setFilter] = useState("all");
+  const [sorting, setSorting] = useState("many");
+
+  const sortedCards = (filteredCards) => {
+    return filteredCards.sort((a, b) => {
+      if (sorting === "many") {
+        return b.comments.length - a.comments.length;
+      } else {
+        return a.comments.length - b.comments.length;
+      }
+    });
+  };
 
   const filteredCards = () => {
     switch (filter) {
       case "noAnswer":
-        return cards.filter((card) => card.answers.length === 0);
+        return cards.filter((card) => card.comments.length === 0);
       case "withAnswer":
-        return cards.filter((card) => card.answers.length > 0);
+        return cards.filter((card) => card.comments.length > 0);
       default:
         return cards;
     }
   };
+
+  const displayedCards = sortedCards(filteredCards());
 
   return (
     <StyledSection>
@@ -124,16 +167,28 @@ const Home = () => {
             </p>
           )}
         </div>
-        <div className="filters">
-          <p>Filtruoti pagal:</p>
-          <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-            <option value="all">Visi</option>
-            <option value="noAnswer">Be atsakymų</option>
-            <option value="withAnswer">Su atsakymais</option>
-          </select>
+        <div className="sortingWrapper">
+          <div className="filters">
+            <p>Filtruoti pagal:</p>
+            <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+              <option value="all">Visi</option>
+              <option value="noAnswer">Be atsakymų</option>
+              <option value="withAnswer">Su atsakymais</option>
+            </select>
+          </div>
+          <div className="filters__right">
+            <p>Rikiuoti pagal:</p>
+            <select
+              value={sorting}
+              onChange={(e) => setSorting(e.target.value)}
+            >
+              <option value="many">Daugiausiai atsakymų</option>
+              <option value="notmany">Mažiausiai atsakymų</option>
+            </select>
+          </div>
         </div>
         <div className="cardsWrapper">
-          {filteredCards().map((card) => (
+          {displayedCards.map((card) => (
             <Card key={card.id} data={card} location={location} />
           ))}
         </div>
